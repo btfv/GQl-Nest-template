@@ -29,9 +29,6 @@ export class UsersService {
         user.userId === getUserArgs.userId ||
         user.username === getUserArgs.username,
     );
-    if (!user) {
-      throw new UserInputError('User not found');
-    }
     return user;
   }
 

@@ -1,13 +1,14 @@
+import { ResponseAddAccessTokenToHeaderInterceptor } from './interceptors/auth.interceptor';
 import { AuthService } from './auth.service';
 import {
   Controller,
+  Headers,
   Post,
   Request,
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
 import { LocalAuthGuard } from './guards/local.auth.guard';
-import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @Controller('auth')
 export class AuthController {
@@ -15,8 +16,8 @@ export class AuthController {
 
   @UseGuards(LocalAuthGuard)
   @Post('login')
-  @UseInterceptors(new AuthInterceptor())
-  async login(@Request() req) {
-    return await this.authService.login(req.user);
+  @UseInterceptors(ResponseAddAccessTokenToHeaderInterceptor)
+  async login() {
+    return { loginDate: new Date() };
   }
 }
