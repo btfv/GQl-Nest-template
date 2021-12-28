@@ -4,6 +4,7 @@
 - JWT authentication module
 - GraphQL API module
 - Business logic module
+
 Depends on [this starter](https://github.com/nestjs/typescript-starter).
 
 
