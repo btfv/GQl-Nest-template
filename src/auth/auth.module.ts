@@ -1,4 +1,3 @@
-import { JwtStrategy } from './strategies/jwt.strategy';
 import { UsersModule } from './../users/users.module';
 import { Module } from '@nestjs/common';
 import { AuthService } from './auth.service';
@@ -18,7 +17,7 @@ import { GqlAuthGuard } from './guards/gql.auth.guard';
       signOptions: { expiresIn: JWT_EXPIRATION_TIME },
     }),
   ],
-  providers: [AuthService, LocalStrategy, JwtStrategy, GqlAuthGuard],
+  providers: [AuthService, LocalStrategy, GqlAuthGuard],
   controllers: [AuthController],
   exports: [GqlAuthGuard],
 })
