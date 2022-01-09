@@ -1,13 +1,6 @@
 import { ResponseAddAccessTokenToHeaderInterceptor } from './interceptors/auth.interceptor';
 import { AuthService } from './auth.service';
-import {
-  Controller,
-  Headers,
-  Post,
-  Request,
-  UseGuards,
-  UseInterceptors,
-} from '@nestjs/common';
+import { Controller, Post, UseGuards, UseInterceptors } from '@nestjs/common';
 import { LocalAuthGuard } from './guards/local.auth.guard';
 
 @Controller('auth')
