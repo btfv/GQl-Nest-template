@@ -4,14 +4,16 @@ import { AuthModule } from './auth/auth.module';
 import { GlobalsModule } from './globals/globals.module';
 import { ApiModule } from './api/api.module';
 import { GraphQLModule } from '@nestjs/graphql';
-
 @Module({
   imports: [
     GraphQLModule.forRoot({
       debug: false,
       playground: true,
-      autoSchemaFile: true,
+      autoSchemaFile: 'schemas/schema.gql',
       sortSchema: true,
+      subscriptions: {
+        'graphql-ws': true,
+      },
     }),
     GlobalsModule,
     UsersModule,

@@ -128,3 +128,6 @@ dist
 
 # Visual Studio Code config
 .vscode
+
+# GraphQL schemas
+schemas
